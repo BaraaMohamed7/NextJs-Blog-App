@@ -14,6 +14,9 @@ async function getData() {
 			id: true,
 			createdAt: true,
 		},
+		orderBy: {
+			createdAt: "desc",
+		},
 	});
 
 	return data;
