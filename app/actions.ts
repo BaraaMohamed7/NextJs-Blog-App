@@ -7,6 +7,10 @@ export async function handleSubmission(formData: FormData) {
 	const { getUser } = getKindeServerSession();
 	const user = await getUser();
 
+	if (!user) {
+		redirect("/aoi/auth/register");
+	}
+
 	const title = formData.get("title");
 	const content = formData.get("content");
 	const imageUrl = formData.get("imageUrl");
