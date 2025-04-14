@@ -1,6 +1,8 @@
 import BlogPostCard from "@/components/general/BlogPostCard";
 import { prisma } from "../utils/db";
 
+export const revalidate = 60;
+
 async function getData() {
 	const data = await prisma.blogPost.findMany({
 		select: {
@@ -18,6 +20,7 @@ async function getData() {
 }
 const Home = async () => {
 	const data = await getData();
+
 	return (
 		<div className='py-6 '>
 			<h1 className='text-3xl font-bold tracking-tight mb-8'>Latest Posts</h1>
